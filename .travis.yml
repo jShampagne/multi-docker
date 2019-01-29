@@ -9,14 +9,14 @@ script:
   - docker run shampagne/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t jShampagne1/multi-client ./client
-  - docker build -t jShampagne1/multi-nginx ./nginx
-  - docker build -t jShampagne1/multi-server ./server
-  - docker build -t jShampagne1/multi-worker ./worker
+  - docker build -t shampagne/multi-client ./client
+  - docker build -t shampagne/multi-nginx ./nginx
+  - docker build -t shampagne/multi-server ./server
+  - docker build -t shampagne/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push jShampagne1/multi-client
-  - docker push jShampagne1/multi-nginx
-  - docker push jShampagne1/multi-server
-  - docker push jShampagne1/multi-worker
+  - docker push shampagne/multi-client
+  - docker push shampagne/multi-nginx
+  - docker push shampagne/multi-server
+  - docker push shampagne/multi-worker
